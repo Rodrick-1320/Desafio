@@ -83,6 +83,7 @@ app.delete('/user/delete', (req, res) => {
 })
 
 
+
 app.listen(8080, () => {
 	console.log('Até aqui tudo certo!')
 })
