@@ -29,6 +29,7 @@ const createEvent = (req, res) =>{
     })
 }
 
+// read
 const readEvents = (req, res) => {
     res.json({
         status: 200,
@@ -36,6 +37,7 @@ const readEvents = (req, res) => {
     })
 }
 
+// update
 const updateEvent = (req, res) => {    
     const info = req.body;
 
@@ -53,7 +55,7 @@ const updateEvent = (req, res) => {
     })
 }
 
-
+// delete
 const deleteEvent = (req, res) => {
     events = events.filter((event) => {
         return event.id !== req.body.id
