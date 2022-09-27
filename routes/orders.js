@@ -1,4 +1,4 @@
-let orders = require('../files/orders.json') 
+const { orders, users, events } = require("../store");
 
 // create
 const createOrder = (req, res) =>{
@@ -16,17 +16,16 @@ const createOrder = (req, res) =>{
             ...req.body
         })
 
-    res.json({
-        status: 200,
-        orders
-    })
+        res.json({
+            status: 200,
+            orders
+        })
 
-    res.json({
-        status: 401,
-        message: "Você deixou de passar alguma informação :("
-    })
-}
-
+        res.json({
+            status: 401,
+            message: "Você deixou de passar alguma informação :("
+        })
+    }
    
 }
 
@@ -35,7 +34,7 @@ const createOrder = (req, res) =>{
 const readOrders = (req, res) => {
     res.json({
         status: 200,
-        events: orders
+        events: users
     })
 }
 
@@ -54,5 +53,6 @@ const deleteOrder = (req, res) => {
 module.exports = {
     createOrder,
     readOrders,
-    deleteOrder
+    deleteOrder,
+    //getOrderInfo
 }

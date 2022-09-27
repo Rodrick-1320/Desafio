@@ -1,11 +1,11 @@
 //CRUD - C(reate) R(ead) U(pdate) D(elete)
-let users = require('../files/users.json') 
+const { users } = require("../store");
 
 // create
 const createUser = (req, res) => {
     
     let id = 0 ;
-    const lastId = users[users.length - 1 ];
+    const lastId = users [users.length - 1 ];
 
     if(lastId){
         id = lastId.id + 1

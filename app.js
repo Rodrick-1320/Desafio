@@ -29,6 +29,7 @@ app.delete('/event/delete', deleteEvent)
 app.post('/order/create', createOrder)
 app.get('/order/read', readOrders)
 app.delete('/order/delete', deleteOrder)
+//app.get('/order/detail', getOrderInfo)
 
 
 app.listen(8080, () => {
