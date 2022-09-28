@@ -30,11 +30,60 @@ const createOrder = (req, res) =>{
 }
 
 
+// getOrder
+const getOrderInfo = (req, res) => {
+
+    const nameOrder = req.body.id   
+
+    const myOrder = orders.find((item)=> item.id == nameOrder)
+    const user = users.find((item)=> item.id == myOrder.userId)
+    const event = events.find((item)=> item.id == myOrder.eventId)
+
+
+    res.json({
+        status: 200, 
+
+        name: user.name,
+
+        date: event.date,
+
+        isPay: myOrder.isPay,
+
+        event: event.name
+
+    })
+}
+
+// getOrders
+const getOrdersInfo = (req, res) => {
+
+    let myOrder = orders.map((item)=> {
+
+        const cUser = users.find((mUser)=> mUser.id == item.userId)
+        const event = events.find((mEvent)=> mEvent.id == item.eventId)
+
+        return {
+            userName: cUser.name,
+            dateEvent: event.date,
+            eventName: event.name,
+            isPay: item.isPay
+        }
+
+    })
+
+    res.json({
+        status: 200,
+        ...myOrder
+    })
+
+}
+
+
 // read
 const readOrders = (req, res) => {
     res.json({
         status: 200,
-        events: users
+        events: orders
     })
 }
 
@@ -54,5 +103,6 @@ module.exports = {
     createOrder,
     readOrders,
     deleteOrder,
-    //getOrderInfo
+    getOrderInfo,
+    getOrdersInfo
 }

@@ -1,5 +1,5 @@
 //CRUD - C(reate) R(ead) U(pdate) D(elete)
-const { events } = require("../store");
+let { events } = require("../store");
 
 // create
 const createEvent = (req, res) =>{

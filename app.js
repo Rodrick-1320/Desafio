@@ -2,7 +2,7 @@
 const express = require('express') 
 const { createEvent, readEvents, updateEvent, deleteEvent } = require('./routes/events')
 const { createUser, readUsers, updateUser, deleteUser } = require('./routes/users')
-const { createOrder, readOrders, deleteOrder } = require('./routes/orders')
+const { createOrder, readOrders, deleteOrder, getOrderInfo, getOrdersInfo } = require('./routes/orders')
 const app = express()
 
 app.use(express.json()) 
@@ -29,9 +29,11 @@ app.delete('/event/delete', deleteEvent)
 app.post('/order/create', createOrder)
 app.get('/order/read', readOrders)
 app.delete('/order/delete', deleteOrder)
-//app.get('/order/detail', getOrderInfo)
+app.get('/order/detail', getOrderInfo)
+app.get('/orders/detail', getOrdersInfo)
 
 
-app.listen(8080, () => {
+
+app.listen(8081, () => {
 	console.log('Até aqui tudo certo!')
 })

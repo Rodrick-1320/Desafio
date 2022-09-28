@@ -1,5 +1,5 @@
 //CRUD - C(reate) R(ead) U(pdate) D(elete)
-const { users } = require("../store");
+let { users } = require("../store");
 
 // create
 const createUser = (req, res) => {
@@ -32,7 +32,7 @@ const createUser = (req, res) => {
 
 const readUsers = (req, res) => {
     res.json({
-        status: 200 / "Deu bom",
+        status: 200 ,
         users: users
     })
 }
@@ -49,19 +49,19 @@ const updateUser = (req,res) => {
     })
 
     res.json({
-        status: 200 / "Deu bom",
+        status: 200,
         users
     })
 }
 
 
 const deleteUser = (req, res) => {
-    data = data.filter((users) => {
+    data = users.filter((users) => {
         return users.id !== req.body.id
     })
 
     res.json({
-        status: 200 / "Deu bom",
+        status: 200,
         data
     })
 }
